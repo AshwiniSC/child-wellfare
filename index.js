@@ -89,7 +89,7 @@ const init = async () => {
         const ObjectID = req.mongo.ObjectID;
         try{
           const data = await req.mongo.db.collection('childs').deleteOne({_id: ObjectID(id)});
-          return {status: true, data:data, message: "Delete child"};
+          return {status: true, data:data, message: "Delete child data"};
         }catch(err){
           return {status: false, data:{}, message: "Something went wrong."};
         }
