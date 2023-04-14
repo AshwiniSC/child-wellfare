@@ -167,7 +167,7 @@ const init = async () => {
         const ObjectID = req.mongo.ObjectID;
         try{
           const data = await req.mongo.db.collection('associations').deleteOne({_id: ObjectID(id)});
-          return {status: true, data:data, message: "Delete association data"};
+          return {status: true, data:data, message: "Delete association data."};
         }catch(err){
           return {status: false, data:{}, message: "Something went wrong."};
         }
