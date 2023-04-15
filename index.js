@@ -136,7 +136,7 @@ const init = async () => {
         const associations = await req.mongo.db.collection('associations').find({}).sort({metacritic:-1}).skip(offset).limit(20).toArray();
         return {status: true, data:associations, message: "Get all associations"};
       }catch(err){
-        return {status: false, data:[], message: "Something went wrong"};
+        return {status: false, data:[], message: "Something went wrong."};
       }
     }
   });
