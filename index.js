@@ -26,7 +26,7 @@ const init = async () => {
   // Get all users
   server.route({
     method: 'GET',
-    path: '/users',
+    path: '/childs',
     handler: async (req, h) => {
       const offset = Number(req.query.offset) || 0;
       try{
@@ -41,7 +41,7 @@ const init = async () => {
   // Add a new user to the database
   server.route({
     method: 'POST',
-    path: '/users',
+    path: '/childs',
     handler: async (req, h) => {
       let payload = req.payload
       payload.isDelete = false
@@ -58,7 +58,7 @@ const init = async () => {
   // Get a single user
   server.route({
     method: 'GET',
-    path: '/users/{id}',
+    path: '/childs/{id}',
     handler: (req, h) => {
       return 'Return a single user';
     }
@@ -67,7 +67,7 @@ const init = async () => {
   // Update the details of a user
   server.route({
     method: 'PUT',
-      path: '/users/{id}',
+      path: '/childs/{id}',
       handler: async (req, h) => {
         const id = req.params.id
         const ObjectID = req.mongo.ObjectID;
@@ -84,7 +84,7 @@ const init = async () => {
   // Delete a user from the database
   server.route({
       method: 'DELETE',
-      path: '/users/{id}',
+      path: '/childs/{id}',
       handler: async (req, h) => {
         const id = req.params.id
         const ObjectID = req.mongo.ObjectID;
