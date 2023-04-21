@@ -73,7 +73,21 @@ const init = async () => {
         const ObjectID = req.mongo.ObjectID;
         const payload = req.payload
         try{
-          const user = await req.mongo.db.collection('childs').findOneAndUpdate({_id: ObjectID(id)}, {$set:{child_name:payload.child_name}}, {new: true})
+          const user = await req.mongo.db.collection('childs').findOneAndUpdate(
+            { _id: ObjectID(id)}, 
+            { $set: 
+              {
+                name:payload.name,
+                age:payload.age,
+                gender:payload.gender,
+                activityInvolved:payload.activityInvolved,
+                imageUrls:payload.imageUrls,
+                videoUrls:payload.videoUrls,
+                isDelete:payload.isDelete,
+              }
+            }, 
+            { new: true}
+          )
           return {status: true, data:user, message: "Update child"};
         }catch(err){
           return {status: false, data:{}, message: "Something went wrong."};
